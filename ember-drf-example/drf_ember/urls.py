@@ -11,8 +11,7 @@ router.register(r'categories', blog.CategorySetView)
 router.register(r'posts', blog.PostSetView)
 
 
-urlpatterns = patterns(
-    '',
+urlpatterns = [
     url(r'^$', 'eblog.views.ember_view', name='home'),
     url(r'^posts/$', 'eblog.views.ember_view', name='home'),
     url(r'^posts/(?P<slug>[\w\-_]+)/$', 'eblog.views.ember_view', name='home'),
@@ -20,4 +19,6 @@ urlpatterns = patterns(
     url(r'^blog/', include('blog.urls')),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^api/', include(router.urls)),
-) + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+]
+
+# ) + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
